@@ -13,9 +13,9 @@ const styles = {
 
 export default () => (
   <div
-    className="DemosContainer"
+    className="Demos-container"
     style={styles}
   >
-    <h1>helloworld</h1>
+    <h1>hi</h1>
   </div>
 );
