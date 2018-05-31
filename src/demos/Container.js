@@ -1,10 +1,11 @@
 import React from 'react';
-
+import { StyleSheet, css } from 'aphrodite';
 
 // box shadows library:
 const shadows = {  // shades, spectres, fates......familiars
   classic: 'rgb(204, 204, 204) 0px 1px 3px 0px',
   pressable: 'rgb(204, 204, 204) 0px -7px 3px 0px',
+  pressed: 'rgb(204, 204, 204) 0px -7px 3px -1px',
 }
 
 
@@ -15,12 +16,12 @@ const shadows = {  // shades, spectres, fates......familiars
 
 // proof-of-concept
 
-const classic = {
+const demo = {
   display: 'flex',
   justifyContent: 'space-around',
   width: '50%',
   height: '200px',
-  boxShadow: 'rgb(204, 204, 204) 0px 1px 3px 0px',
+  boxShadow: shadows.classic,
   paddingTop: '14px',
   marginLeft: '5%',
 }
@@ -50,13 +51,39 @@ const dejaVu = {
   boxShadow: '3px 0px 3px 0px #ccc',
 }
 
+// aphrodite
+const styles = StyleSheet.create({
+  demo: {
+    display: 'flex',
+    justifyContent: 'space-around',
+    width: '50%',
+    height: '200px',
+    boxShadow: shadows.pressable,
+    paddingTop: '14px',
+    marginLeft: '5%',
+    ':hover': {
+      boxShadow: shadows.pressed,
+    },
+    ':active': {
+      boxShadow: shadows.pressable,
+    }
+  },
+
+  small: {
+      '@media (max-width: 600px)': {
+          backgroundColor: 'red',
+      }
+  }
+});
+
 
 
 export default () => (
   <div
     className="Demos-container"
-    style={classic}
   >
-    <h1>hi</h1>
+    <div className={css(styles.demo)}>
+      <h1>hii</h1>
+    </div>
   </div>
 );
