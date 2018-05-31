@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, css } from 'aphrodite/no-important';
+import Card from './Card';
 
 // box shadows library:
 const shadows = {  // shades, spectres, fates......familiars
@@ -65,7 +66,7 @@ const styles = StyleSheet.create({
     width: '50%',
     height: '200px',
     boxShadow: shadows.elegant,
-    paddingTop: '14px',
+    padding: '14px',
     marginLeft: '5%',
     ':hover': {
       boxShadow: shadows.elegantHover,
@@ -84,12 +85,27 @@ const styles = StyleSheet.create({
 
 
 
-export default () => (
-  <div
-    className="Demos-container"
-  >
-    <div className={css(styles.demo)}>
-      <h1>hii</h1>
+export default () => {
+  const { elegant, elegantHover, elegantActive } = shadows;
+  return (
+    <div
+      className="Demos-container"
+    >
+    {/*
+      <div className={css(styles.demo)}>
+        <h1>hii</h1>
+      </div>
+    */}
+      <Card
+        content='hello'
+        styles={{
+          width: '50%',
+          height: '200px',
+          padding: '14px',
+          boxShadow: [ elegant, elegantHover, elegantActive ],
+        }}
+      />
     </div>
-  </div>
-);
+  );
+}
+
