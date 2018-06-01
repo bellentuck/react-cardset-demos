@@ -26,13 +26,13 @@ const composeCardStyles = ({ width, height, padding, boxShadow }) => {
       width: width || '50%',
       height: height || '200px',
       padding: padding || '14px',
-      boxShadow: boxShadowDefault,
+      //boxShadow: boxShadowDefault,
       marginLeft: '5%',
       ':hover': {
-        boxShadow: boxShadowHover,
+        //boxShadow: boxShadowHover,
       },
       ':active': {
-        boxShadow: boxShadowActive,
+        //boxShadow: boxShadowActive,
       }
     }
   });

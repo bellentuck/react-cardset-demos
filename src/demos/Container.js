@@ -91,13 +91,8 @@ export default () => {
     <div
       className="Demos-container"
     >
-    {/*
-      <div className={css(styles.demo)}>
-        <h1>hii</h1>
-      </div>
-    */}
       <Card
-        content='hello'
+        content='a'
         // styles={{
         //   width: '50%',
         //   height: '200px',
@@ -109,3 +104,7 @@ export default () => {
   );
 }
 
+/* maybe ideally,
+(1) something like an "aesthetic" prop that can cover sensible defaults for features like shadowing.
+(2) On top of this, an opt-in for more basic formatting defaults. (a different, boolean prop)
+*/
