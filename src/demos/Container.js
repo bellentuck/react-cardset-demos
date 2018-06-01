@@ -98,12 +98,12 @@ export default () => {
     */}
       <Card
         content='hello'
-        styles={{
-          width: '50%',
-          height: '200px',
-          padding: '14px',
-          boxShadow: [ elegant, elegantHover, elegantActive ],
-        }}
+        // styles={{
+        //   width: '50%',
+        //   height: '200px',
+        //   padding: '14px',
+        //   boxShadow: [ elegant, elegantHover, elegantActive ],
+        // }}
       />
     </div>
   );

@@ -1,28 +1,38 @@
 import React from 'react';
 import { StyleSheet, css, minify } from 'aphrodite/no-important';
+import { elegant, elegantHover, elegantActive } from './styleLibrary/shadows';
 
+/*
+Constructor-like helper method for styling:
+*/
 const composeCardStyles = ({ width, height, padding, boxShadow }) => {
-  if (boxShadow.length < 2 || boxShadow.length > 3) {
-    throw Error('`boxShadow` prop should reference an array of the \
-    form `[ default, hover ]` or `[ default, hover, active ]`.');
+  let boxShadowDefault, boxShadowHover, boxShadowActive;
+  if (!boxShadow || !Array.isArray(boxShadow)) {
+    boxShadowDefault = elegant;
+    boxShadowHover = elegantHover;
+    boxShadowActive = elegantActive;
+  } else {
+    if (boxShadow.length < 2 || boxShadow.length > 3) {
+      throw Error('`boxShadow` prop should reference an array of the \
+      form `[ default, hover ]` or `[ default, hover, active ]`.');
+    }
+    [ boxShadowDefault, boxShadowHover, boxShadowActive ] = boxShadow;
+    if (boxShadow.length === 2) boxShadowActive = boxShadowDefault;
   }
-  let [ boxShadowDefault, boxShadowHover, boxShadowActive ] = boxShadow;
-  if (boxShadow.length === 2) boxShadowActive = boxShadowDefault;
-
   const protoCard = StyleSheet.create({
     box: {
       display: 'flex',
       justifyContent: 'space-around',
-      width, // '50%',
-      height, // '200px',
-      boxShadow: boxShadowDefault, // shadows.elegant,
-      padding, // '14px',
+      width: width || '50%',
+      height: height || '200px',
+      padding: padding || '14px',
+      boxShadow: boxShadowDefault,
       marginLeft: '5%',
       ':hover': {
-        boxShadow: boxShadowHover, //shadows.elegantHover,
+        boxShadow: boxShadowHover,
       },
       ':active': {
-        boxShadow: boxShadowActive, //shadows.elegantActive,
+        boxShadow: boxShadowActive,
       }
     }
   });
@@ -31,19 +41,21 @@ const composeCardStyles = ({ width, height, padding, boxShadow }) => {
 
 
 /*
-Card props:
+Shortening class names for easier accessing elements in development
+*/
+minify(false);
+
+
+/*
+`styles` props:
 - width
 - height
 - padding
 - boxShadow [ main, hover, active ]
 - content (essentially "children")
 */
-
-// for development:
-minify(false);
-
 export default ({ content, styles }) => {
-  const style = composeCardStyles(styles);
+  const style = composeCardStyles(styles || {});
   return (
     <div className={css(style)}>
       <h1>{content}</h1>
