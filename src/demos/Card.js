@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, css, minify } from 'aphrodite/no-important';
-import { elegant, elegantHover, elegantActive } from './styleLibrary/shadows';
+import { balanced } from './styleLibrary/shadows';
 
 /*
 Constructor-like helper method for styling:
@@ -8,9 +8,9 @@ Constructor-like helper method for styling:
 const composeCardStyles = ({ width, height, padding, boxShadow }) => {
   let boxShadowDefault, boxShadowHover, boxShadowActive;
   if (!boxShadow || !Array.isArray(boxShadow)) {
-    boxShadowDefault = elegant;
-    boxShadowHover = elegantHover;
-    boxShadowActive = elegantActive;
+    boxShadowDefault = balanced.default;
+    boxShadowHover = balanced.hover;
+    boxShadowActive = balanced.active;
   } else {
     if (boxShadow.length < 2 || boxShadow.length > 3) {
       throw Error('`boxShadow` prop should reference an array of the \
@@ -26,13 +26,13 @@ const composeCardStyles = ({ width, height, padding, boxShadow }) => {
       width: width || '50%',
       height: height || '200px',
       padding: padding || '14px',
-      //boxShadow: boxShadowDefault,
+      boxShadow: boxShadowDefault,
       marginLeft: '5%',
       ':hover': {
-        //boxShadow: boxShadowHover,
+        boxShadow: boxShadowHover,
       },
       ':active': {
-        //boxShadow: boxShadowActive,
+        boxShadow: boxShadowActive,
       }
     }
   });
@@ -55,9 +55,9 @@ minify(false);
 - content (essentially "children")
 */
 export default ({ content, styles }) => {
-  const style = composeCardStyles(styles || {});
+  const cardStyles = composeCardStyles(styles || {});
   return (
-    <div className={css(style)}>
+    <div className={css(cardStyles)}>
       <h1>{content}</h1>
     </div>
   );
