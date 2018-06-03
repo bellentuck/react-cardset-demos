@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, css, minify } from 'aphrodite/no-important';
-import { balanced } from './styleLibrary/shadows';
+import { balancedLight } from './styleLibrary/shadows';
 
 /*
 Constructor-like helper method for styling:
@@ -8,9 +8,9 @@ Constructor-like helper method for styling:
 const composeCardStyles = ({ width, height, padding, boxShadow }) => {
   let boxShadowDefault, boxShadowHover, boxShadowActive;
   if (!boxShadow || !Array.isArray(boxShadow)) {
-    boxShadowDefault = balanced.default;
-    boxShadowHover = balanced.hover;
-    boxShadowActive = balanced.active;
+    boxShadowDefault = balancedLight.default;
+    boxShadowHover = balancedLight.hover;
+    boxShadowActive = balancedLight.active;
   } else {
     if (boxShadow.length < 2 || boxShadow.length > 3) {
       throw Error('`boxShadow` prop should reference an array of the \

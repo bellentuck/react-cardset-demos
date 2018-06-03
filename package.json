@@ -4,6 +4,9 @@
   "private": true,
   "dependencies": {
     "aphrodite": "2.2.1",
+    "chai": "4.1.2",
+    "enzyme": "3.3.0",
+    "enzyme-adapter-react-16": "1.1.1",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-scripts": "1.1.4"

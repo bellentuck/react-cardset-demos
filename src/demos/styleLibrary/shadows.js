@@ -5,6 +5,16 @@ module.exports = {  // shades, spectres, fates......familiars
     hover: 'rgb(204, 204, 204) 0px 0.5px 4px 0px',
     active: 'rgb(204, 204, 204) 0px 0.5px 2px 0px',
   },
+  balancedLight: {
+    default: 'rgb(204, 204, 204) 0px 0.5px 2px 0px',
+    hover: 'rgb(204, 204, 204) 0px 0.5px 3px 0px',
+    active: 'rgb(204, 204, 204) 0px 0.5px 1.5px 0px',
+  },
+  balancedSubtle: {
+    default: 'rgb(204, 204, 204) 0px 0.5px 2px 0px',
+    hover: 'rgb(204, 204, 204) 0px 0.5px 4px 0px',
+    active: 'rgb(204, 204, 204) 0px 0.5px 3px 0px',
+  },
   elegantLeft: {
     default: 'rgb(204, 204, 204) -1px 0px 3px 0px',
     hover: 'rgb(204, 204, 204) -1px 0px 4px 0px',
